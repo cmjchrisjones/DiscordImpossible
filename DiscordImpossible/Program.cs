@@ -45,14 +45,14 @@ namespace DiscordImpossible
                    TokenType = DSharpPlus.TokenType.Bot
                });
 
-            if (clearChannelMessages)
+            if (clearChannelMessages && announceChannel.HasValue)
             {
-                var channel = await discordDSharpClient.GetChannelAsync(announceChannel);
+                var channel = await discordDSharpClient.GetChannelAsync(announceChannel.Value);
                 await channel.DeleteMessagesAsync(await channel.GetMessagesAsync());
             }
 
             // Use this to announce when the bot is up and running
-            await Announce(announceChannel);
+            if (announceChannel.HasValue) await Announce(announceChannel.Value);
 
             discordDSharpClient.MessageCreated += async (sender, e) =>
             {
