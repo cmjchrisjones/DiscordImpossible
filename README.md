@@ -65,7 +65,7 @@ At the time of writing, the bot only supports two commands.
 
 ## Known issues/bugs
 
-### As I've already mentioned, this is a prrof of concept and therefore not production ready, hear are some of the things which require more work on:
+### As I've already mentioned, this is a proof of concept and therefore not production ready, hear are some of the things which require more work on:
 
 - If the app crashes, then any messages in the queue for destruction won't be destroyed. This is due to us tracking these items in memory, this would better be used a data store of some description.
 - Input time just takes in a number after the initial `!!` command, if its not a number it won't be scheduled for deletion, but no feedback to the user to confirm this
